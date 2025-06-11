@@ -50,13 +50,13 @@ export const setJobs = (newJobs) => {
 export const getJobs = () => jobs;
 
 // Upload jobs to Firebase
-export const uploadJobs = async () => {
+export const uploadJobs = async (jobList) => {
   try {
     const res = await fetch(
       "https://sign-language-7c5c5-default-rtdb.firebaseio.com/jobs.json",
       {
-        method: "PUT", // overwrites everything
-        body: JSON.stringify(jobs),
+        method: "PUT",
+        body: JSON.stringify(jobList), // use passed array
       }
     );
 
